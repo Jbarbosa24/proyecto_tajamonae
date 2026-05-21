@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ── Stitch Design System — Hotel Tajamonae 2026 ── */
+/* Paleta: Light mode, teal primario (#005d6a)       */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-space-grotesk);
+  --color-primary-2: var(--primary-2);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-surface: var(--surface);
+  --color-surface-low: var(--surface-low);
+  --color-surface-lowest: var(--surface-lowest);
+  --color-surface-highest: var(--surface-highest);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ── Light theme (Stitch) ── */
+:root {
+  --background: #f7f9fb;
+  --foreground: #191c1e;
+  --surface: #ffffff;
+  --surface-low: #f2f4f6;
+  --surface-lowest: #eceef0;
+  --surface-highest: #e0e3e5;
+  --card: #ffffff;
+  --card-foreground: #191c1e;
+  --popover: #ffffff;
+  --popover-foreground: #191c1e;
+  --primary: #005d6a;
+  --primary-2: #0e7787;
+  --primary-foreground: #ffffff;
+  --secondary: #924b08;
+  --secondary-foreground: #ffffff;
+  --success: #1a7a4a;
+  --warning: #b45309;
+  --muted: #eceef0;
+  --muted-foreground: #6e797b;
+  --accent: #eceef0;
+  --accent-foreground: #191c1e;
+  --destructive: #ba1a1a;
+  --border: #e0e3e5;
+  --input: #f2f4f6;
+  --ring: #005d6a;
+  --chart-1: #005d6a;
+  --chart-2: #0e7787;
+  --chart-3: #924b08;
+  --chart-4: #bec8cb;
+  --chart-5: #e0e3e5;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #191c1e;
+  --sidebar-primary: #005d6a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f2f4f6;
+  --sidebar-accent-foreground: #191c1e;
+  --sidebar-border: #e0e3e5;
+  --sidebar-ring: #005d6a;
+}
+
+/* Keep dark as fallback but unused */
+.dark {
+  --background: #f7f9fb;
+  --foreground: #191c1e;
+  --surface: #ffffff;
+  --surface-low: #f2f4f6;
+  --surface-lowest: #eceef0;
+  --surface-highest: #e0e3e5;
+  --card: #ffffff;
+  --card-foreground: #191c1e;
+  --popover: #ffffff;
+  --popover-foreground: #191c1e;
+  --primary: #005d6a;
+  --primary-2: #0e7787;
+  --primary-foreground: #ffffff;
+  --secondary: #924b08;
+  --secondary-foreground: #ffffff;
+  --success: #1a7a4a;
+  --warning: #b45309;
+  --muted: #eceef0;
+  --muted-foreground: #6e797b;
+  --accent: #eceef0;
+  --accent-foreground: #191c1e;
+  --destructive: #ba1a1a;
+  --border: #e0e3e5;
+  --input: #f2f4f6;
+  --ring: #005d6a;
+  --chart-1: #005d6a;
+  --chart-2: #0e7787;
+  --chart-3: #924b08;
+  --chart-4: #bec8cb;
+  --chart-5: #e0e3e5;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #191c1e;
+  --sidebar-primary: #005d6a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f2f4f6;
+  --sidebar-accent-foreground: #191c1e;
+  --sidebar-border: #e0e3e5;
+  --sidebar-ring: #005d6a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), 'Inter', sans-serif;
+    color-scheme: light;
+  }
+
+  html {
+    @apply font-sans;
+    color-scheme: light;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading), 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Stitch card — white with soft shadow */
+  .stitch-card {
+    @apply rounded-lg bg-card border border-border shadow-sm;
+  }
+
+  /* Stitch input */
+  .stitch-input {
+    @apply rounded-lg border border-border bg-surface-low px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all;
+  }
+
+  /* Stitch button primary */
+  .stitch-btn-primary {
+    @apply rounded-lg bg-primary text-primary-foreground font-semibold px-6 py-3 hover:bg-primary-2 transition-colors shadow-sm;
+  }
+
+  /* Status badges */
+  .badge-disponible {
+    background: #005d6a;
+    color: #fff;
+  }
+  .badge-ocupada {
+    background: #ba1a1a;
+    color: #fff;
+  }
+  .badge-limpieza {
+    background: #b45309;
+    color: #fff;
+  }
+  .badge-activo {
+    background: #dcfce7;
+    color: #1a7a4a;
+  }
+  .badge-inactivo {
+    background: #fef2f2;
+    color: #ba1a1a;
+  }
+
+  /* Custom Scrollbar for Modals */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+}

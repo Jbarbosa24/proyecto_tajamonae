@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consolidado - Hotel Tajamonae</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#ffb77d",
+              "surface-dim": "#d8dadc",
+              "on-secondary-fixed-variant": "#713700",
+              "on-primary-fixed-variant": "#004e5a",
+              "tertiary": "#7d4611",
+              "primary-container": "#0e7787",
+              "outline-variant": "#bec8cb",
+              "on-primary-fixed": "#001f25",
+              "surface-bright": "#f7f9fb",
+              "secondary-fixed-dim": "#ffb783",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#a2eeff",
+              "surface-container-low": "#f2f4f6",
+              "surface-tint": "#006877",
+              "surface-container": "#eceef0",
+              "on-tertiary-fixed-variant": "#6d3a04",
+              "secondary-container": "#ffa35d",
+              "on-surface": "#191c1e",
+              "on-secondary-fixed": "#301400",
+              "background": "#f7f9fb",
+              "secondary-fixed": "#ffdcc5",
+              "outline": "#6e797b",
+              "on-error": "#ffffff",
+              "on-background": "#191c1e",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#2f1500",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed-dim": "#7fd3e5",
+              "secondary": "#924b08",
+              "on-primary-container": "#cef6ff",
+              "on-tertiary-container": "#ffebde",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#9a5e28",
+              "primary": "#005d6a",
+              "tertiary-fixed": "#ffdcc3",
+              "surface-variant": "#e0e3e5",
+              "inverse-primary": "#7fd3e5",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#3e484b",
+              "surface-container-high": "#e6e8ea",
+              "on-secondary-container": "#743900"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-64 hidden md:flex flex-col border-r-0 bg-slate-50 dark:bg-slate-950 fixed left-0 top-0 p-4 space-y-2 z-50">
+<div class="px-4 py-6 mb-4">
+<h1 class="text-lg font-extrabold text-cyan-900 dark:text-white uppercase tracking-wider">Hotel Tajamonae</h1>
+<p class="text-slate-500 text-xs font-medium">Admin Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-manrope text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bed">bed</span>
+<span class="font-manrope text-sm font-medium">Habitaciones</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-manrope text-sm font-medium">Personal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="concierge">concierge</span>
+<span class="font-manrope text-sm font-medium">Servicios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_laundry_service">local_laundry_service</span>
+<span class="font-manrope text-sm font-medium">Lavandería</span>
+</a>
+<!-- Active Tab: Consolidado -->
+<a class="flex items-center gap-3 px-4 py-3 text-cyan-800 dark:text-cyan-300 bg-white dark:bg-slate-800 rounded-lg shadow-sm font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="assessment" style="font-variation-settings: 'FILL' 1;">assessment</span>
+<span class="font-manrope text-sm">Consolidado</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-manrope text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 bg-surface min-h-screen">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="fixed top-0 right-0 left-0 md:left-64 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_4px_24px_rgba(25,28,30,0.06)] flex justify-between items-center px-6 py-3">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar reportes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100/50 rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100/50 rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden border-2 border-white shadow-sm">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="professional male executive portrait with soft office lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmWSdPDclGHGVpsgERuETGxM1ky3rA4-L-xEAT1X32cHb7TKsxJ4artu4fu-T0UeYn8pIpZcJlXTvELyi23Zla9GB1bzmIudXSTCH9Cpti1KFOVfBSr36HJriwm2xpxUm21cvh9V5yCZ73FAp4_OIZYRHKjaq1BYocOpkCXTe9R-PxZBM3raAy5WtVYuaD73BS1ygMP17WSoOlR2CzBa6pC_t_a9js2swJQ5986f92ZFRs4gB_kIWhnwFlRn_ziLcUml6JmI2kvss"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-24 px-6 pb-24 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mb-2">Consolidado General</h2>
+<p class="text-on-surface-variant max-w-md">Reportes analíticos de facturación y servicios agrupados por convenio corporativo.</p>
+</div>
+<!-- Date Range Selector -->
+<div class="bg-surface-container-lowest p-2 rounded-xl shadow-sm flex items-center gap-2">
+<div class="flex flex-col px-3 border-r border-outline-variant/30">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Desde</label>
+<input class="border-none p-0 text-sm font-semibold bg-transparent focus:ring-0" type="date" value="2023-11-01"/>
+</div>
+<div class="flex flex-col px-3">
+<label class="text-[10px] font-bold text-outline uppercase tracking-wider">Hasta</label>
+<input class="border-none p-0 text-sm font-semibold bg-transparent focus:ring-0" type="date" value="2023-11-30"/>
+</div>
+<button class="bg-primary text-on-primary p-2.5 rounded-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid - Enterprise Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+<!-- Card Empresa: CEPSA -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,30,0.04)] flex flex-col hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700">
+<span class="material-symbols-outlined" data-icon="corporate_fare" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Cepsa S.A.</h3>
+<p class="text-xs text-outline">NIT: 800.123.456-1</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded uppercase">Activo</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center group">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="bed">bed</span>
+<span class="text-sm font-medium text-on-surface-variant">Hospedaje</span>
+</div>
+<span class="text-sm font-bold">142 noches</span>
+</div>
+<div class="flex justify-between items-center group">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="restaurant">restaurant</span>
+<span class="text-sm font-medium text-on-surface-variant">Alimentación</span>
+</div>
+<span class="text-sm font-bold">426 servicios</span>
+</div>
+<div class="flex justify-between items-center group">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="local_laundry_service">local_laundry_service</span>
+<span class="text-sm font-medium text-on-surface-variant">Lavandería</span>
+</div>
+<span class="text-sm font-bold">88 kg</span>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/50">
+<div class="flex justify-between items-end mb-4">
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Total Periodo</span>
+<span class="text-xl font-extrabold text-primary">$ 24.580.000</span>
+</div>
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                            Exportar PDF
+                        </button>
+</div>
+</div>
+<!-- Card Empresa: PACIFIC -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,30,0.04)] flex flex-col hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center text-cyan-700">
+<span class="material-symbols-outlined" data-icon="foundation" style="font-variation-settings: 'FILL' 1;">foundation</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Pacific Energy</h3>
+<p class="text-xs text-outline">NIT: 900.555.222-0</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded uppercase">Activo</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="bed">bed</span>
+<span class="text-sm font-medium text-on-surface-variant">Hospedaje</span>
+</div>
+<span class="text-sm font-bold">98 noches</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="restaurant">restaurant</span>
+<span class="text-sm font-medium text-on-surface-variant">Alimentación</span>
+</div>
+<span class="text-sm font-bold">285 servicios</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="local_laundry_service">local_laundry_service</span>
+<span class="text-sm font-medium text-on-surface-variant">Lavandería</span>
+</div>
+<span class="text-sm font-bold">45 kg</span>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/50">
+<div class="flex justify-between items-end mb-4">
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Total Periodo</span>
+<span class="text-xl font-extrabold text-primary">$ 18.215.400</span>
+</div>
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                            Exportar PDF
+                        </button>
+</div>
+</div>
+<!-- Card Empresa: ECOPETROL -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(25,28,30,0.04)] flex flex-col hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+<span class="material-symbols-outlined" data-icon="domain" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Ecopetrol</h3>
+<p class="text-xs text-outline">NIT: 899.999.068-1</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded uppercase">Activo</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="bed">bed</span>
+<span class="text-sm font-medium text-on-surface-variant">Hospedaje</span>
+</div>
+<span class="text-sm font-bold">215 noches</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="restaurant">restaurant</span>
+<span class="text-sm font-medium text-on-surface-variant">Alimentación</span>
+</div>
+<span class="text-sm font-bold">640 servicios</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="local_laundry_service">local_laundry_service</span>
+<span class="text-sm font-medium text-on-surface-variant">Lavandería</span>
+</div>
+<span class="text-sm font-bold">122 kg</span>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant/50">
+<div class="flex justify-between items-end mb-4">
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Total Periodo</span>
+<span class="text-xl font-extrabold text-primary">$ 36.940.200</span>
+</div>
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+                            Exportar PDF
+                        </button>
+</div>
+</div>
+</div>
+<!-- Tonal Section: Audit & Tables -->
+<div class="space-y-6">
+<!-- Summary Tabs -->
+<div class="flex border-b border-surface-variant/30">
+<button class="px-6 py-3 text-sm font-bold text-primary border-b-2 border-primary">Resumen de Auditoría</button>
+<button class="px-6 py-3 text-sm font-medium text-outline hover:text-primary transition-colors">Log de Auditoría</button>
+</div>
+<!-- Summary Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest">Servicio</th>
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest">Cantidad Total</th>
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest">Valor Unit. Prom.</th>
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest text-right">Subtotal COP</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/20">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-sm font-medium">Alojamiento Suite</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">455 noches</td>
+<td class="px-6 py-4 text-sm">$ 120.000</td>
+<td class="px-6 py-4 text-sm font-bold text-right">$ 54.600.000</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+<span class="text-sm font-medium">Plan Alimentación Completo</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">1.351 platos</td>
+<td class="px-6 py-4 text-sm">$ 15.500</td>
+<td class="px-6 py-4 text-sm font-bold text-right">$ 20.940.500</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-sm font-medium">Lavandería Industrial</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">255 kg</td>
+<td class="px-6 py-4 text-sm">$ 8.200</td>
+<td class="px-6 py-4 text-sm font-bold text-right">$ 2.091.000</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="bg-surface-container-highest/30">
+<td class="px-6 py-5 text-sm font-extrabold uppercase tracking-wider text-outline text-right" colspan="3">Gran Total Consolidado</td>
+<td class="px-6 py-5 text-lg font-extrabold text-primary text-right">$ 77.631.500</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<!-- Audit Log Preview Section -->
+<div class="mt-12">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold">Actividad Reciente (Audit Log)</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                            Ver historial completo
+                            <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Log Item -->
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-outline-variant/30 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Actualización de Tarifa Corp.</p>
+<p class="text-xs text-on-surface-variant"><span class="font-semibold">Usuario:</span> d.gonzalez • <span class="font-semibold">Ref:</span> Cepsa Suite 2024</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-outline">Hace 14 min</p>
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Afectó: 12 registros</p>
+</div>
+</div>
+<!-- Log Item -->
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-outline-variant/30 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Exportación de Reporte Mensual</p>
+<p class="text-xs text-on-surface-variant"><span class="font-semibold">Usuario:</span> r.perez • <span class="font-semibold">Empresa:</span> Ecopetrol</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-outline">Hoy, 08:42 AM</p>
+<p class="text-[10px] text-tertiary font-bold uppercase tracking-widest">Acción: Descarga</p>
+</div>
+</div>
+<!-- Log Item -->
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-outline-variant/30 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="lock_reset">lock_reset</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Cierre de Periodo Fiscal</p>
+<p class="text-xs text-on-surface-variant"><span class="font-semibold">Usuario:</span> admin_system • <span class="font-semibold">Periodo:</span> Octubre 2023</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-outline">Ayer, 11:59 PM</p>
+<p class="text-[10px] text-error font-bold uppercase tracking-widest">Nivel: Crítico</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Authority: JSON - Responsive Pivot) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-lg rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3" href="#">
+<span class="material-symbols-outlined" data-icon="bed">bed</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Cuartos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Staff</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-1 px-3" href="#">
+<span class="material-symbols-outlined" data-icon="room_service">room_service</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Servicios</span>
+</a>
+<a class="flex flex-col items-center justify-center text-cyan-700 dark:text-cyan-300 bg-cyan-50/50 dark:bg-cyan-900/30 rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="menu" style="font-variation-settings: 'FILL' 1;">menu</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Más</span>
+</a>
+</nav>
+</main>
+</body></html>

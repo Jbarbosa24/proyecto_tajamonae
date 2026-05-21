@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#e0f2fe',
+                primaryTextColor: '#0369a1',
+                primaryBorderColor: '#0ea5e9',
+                lineColor: '#64748b',
+                secondaryColor: '#f0f9ff',
+                tertiaryColor: '#ffffff'
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --container-bg: #ffffff;
+            --text-main: #1e293b;
+            --accent: #0ea5e9;
+        }
+        body { 
+            background: var(--bg-color); 
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #0c4a6e;
+        }
+        .diagram-container { 
+            margin-bottom: 40px; 
+            padding: 30px; 
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            background: var(--container-bg); 
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid #e2e8f0;
+        }
+        .diagram-container h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            color: #0369a1;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Panel de Diagramas - Hotel Tajamonae</h1>
+    <div id="d1" class="diagram-container">
+        <h2>1.1 Casos de Uso General</h2>
+        <pre class="mermaid">
+flowchart TD
+    Admin[Administrador]
+    Logistico[Logístico - Empresa]
+    Aseadora[Camarería - Aseadora]
+
+    subgraph "Sistema Hotel Tajamonae"
+        UC1((Gestionar Personal y Empresas))
+        UC2((Asignar Habitaciones - Check-in/Out))
+        UC3((Registrar Servicios - RFID))
+        UC4((Reportar Estado de Limpieza))
+        UC5((Gestionar Lavandería - Tulas))
+        UC6((Consultar Consolidados y Auditoría))
+        UC7((Visualizar Mapa en Tiempo Real))
+    end
+
+    Admin --> UC1
+    Admin --> UC2
+    Admin --> UC3
+    Admin --> UC6
+    Admin --> UC7
+
+    Logistico --> UC6
+    Logistico --> UC7
+
+    Aseadora --> UC4
+    Aseadora --> UC5
+    Aseadora --> UC7
+        </pre>
+    </div>
+
+    <div id="d2" class="diagram-container">
+        <h2>1.2 Validación RFID</h2>
+        <pre class="mermaid">
+flowchart TD
+    Operario[Operario]
+    Admin[Administrador / Recepcionista]
+
+    subgraph "Módulo de Validación RFID"
+        UC_Scan((Presentar Tarjeta RFID))
+        UC_Cred((Consultar Créditos Disponibles))
+        UC_Reg((Registrar Consumo de Servicio))
+        UC_Err((Rechazar por Duplicado/Sin Cupo))
+    end
+
+    Operario --> UC_Scan
+    UC_Scan -->|Transmisión HID| Admin
+    Admin --> UC_Cred
+    UC_Cred -->|Si tiene crédito| UC_Reg
+    UC_Cred -->|Si ya consumió| UC_Err
+        </pre>
+    </div>
+
+    <div id="d3" class="diagram-container">
+        <h2>2.1 Arquitectura del Sistema</h2>
+        <pre class="mermaid">
+graph TD
+    subgraph "Nube (Vercel / Supabase)"
+        WEB[Next.js App Router]
+        SA[Server Actions / API Routes]
+        DB[(PostgreSQL Database)]
+        AUTH[Supabase Auth / JWT]
+        RT[Realtime Engine]
+    end
+
+    subgraph "Cliente / Hardware"
+        BROWSER[Navegador Web Desktop/Mobile]
+        RFID[Lector RFID HID]
+    end
+
+    BROWSER <--> WEB
+    WEB <--> SA
+    SA <--> AUTH
+    SA <--> DB
+    DB <--> RT
+    RT -.-> BROWSER
+    RFID -.->|keyboard wedge| BROWSER
+        </pre>
+    </div>
+
+    <div id="d4" class="diagram-container">
+        <h2>2.2 Despliegue</h2>
+        <pre class="mermaid">
+flowchart TD
+    subgraph "Dispositivo Cliente"
+        Chrome["Navegador Chrome/Edge"]
+    end
+    
+    subgraph "Vercel Platform"
+        Edge["Next.js Edge Runtime"]
+        Serverless["Serverless Functions"]
+    end
+
+    subgraph "Supabase Cloud"
+        DB[("PostgreSQL Instance")]
+        Auth["GoTrue Auth Service"]
+        API["PostgREST API Layer"]
+    end
+
+    Chrome -- HTTPS --> Edge
+    Edge -- "RPC/GraphQL" --> API
+    API --> DB
+        </pre>
+    </div>
+
+    <div id="d5" class="diagram-container">
+        <h2>2.3 Modelo Entidad-Relación</h2>
+        <pre class="mermaid">
+erDiagram
+    BLOQUES ||--o{ HABITACIONES : contiene
+    EMPRESAS ||--o{ OPERARIOS : emplea
+    EMPRESAS ||--o{ TARIFAS_EMPRESA : define
+    EMPRESAS ||--o{ SERVICIOS : factura
+    OPERARIOS ||--o{ SERVICIOS : consume
+    OPERARIOS ||--o{ CREDITOS_DIARIOS : posee
+    OPERARIOS }o--|| HABITACIONES : reside
+    HABITACIONES ||--o{ REGISTRO_CAMARERIA : audita_aseo
+    HABITACIONES ||--o{ REGISTRO_LAVANDERIA : gestiona_prendas
+    PERFILES ||--o{ AUDIT_LOG : genera
+    ROLES ||--o{ PERFILES : asigna
+
+    OPERARIOS {
+        uuid id PK
+        string nombre_completo
+        string documento_identidad UK
+        string rfid_uid UK
+        boolean activo
+        string genero
+        string tipo_cargo
+    }
+
+    SERVICIOS {
+        uuid id PK
+        uuid operario_id FK
+        string tipo
+        integer valor_total
+        date fecha
+    }
+
+    CREDITOS_DIARIOS {
+        uuid id PK
+        uuid operario_id FK
+        string tipo
+        date fecha
+        boolean consumido
+    }
+
+    HABITACIONES {
+        string id PK
+        string bloque_id FK
+        string estado
+        string estado_aseo
+    }
+        </pre>
+    </div>
+
+    <div id="d6" class="diagram-container">
+        <h2>3.1 Flujo RFID</h2>
+        <pre class="mermaid">
+flowchart TD
+    A[Inicio: Operario acerca tarjeta] --> B[Escaneo RFID vía HID]
+    B --> C{¿Operario Existe?}
+    C -- No --> D[Error: Operario no registrado]
+    C -- Si --> E[Consultar CREDITOS_DIARIOS]
+    E --> F{¿Tiene Crédito Disponible?}
+    F -- No --> G[Error: Servicio ya consumido hoy]
+    F -- Si --> H[Confirmación Visual del Administrador]
+    H --> I[Insertar registro en SERVICIOS]
+    I --> J[Marcar CREDITO como Consumido]
+    J --> K[Notificación Success]
+    K --> L[Fin]
+        </pre>
+    </div>
+
+    <div id="d7" class="diagram-container">
+        <h2>3.2 Secuencia de Transacción</h2>
+        <pre class="mermaid">
+sequenceDiagram
+    participant B as Browser (Client)
+    participant A as Server Action (Next.js)
+    participant S as Supabase (API/DB)
+    participant R as Realtime
+
+    B->>A: registrarServicio(rfid_uid, tipo)
+    A->>S: RPC verificar_duplicado(uid, tipo)
+    S-->>A: { ok: true, credit_id: "xyz" }
+    A->>S: Insert SERVICIO & Update CREDITO
+    S-->>A: Success 201
+    A->>R: Broadcast Event
+    R-->>B: Update Dashboard Store
+    A-->>B: Response: Registro Exitoso
+        </pre>
+    </div>
+
+    <div id="d8" class="diagram-container">
+        <h2>3.3 Estados de Servicio</h2>
+        <pre class="mermaid">
+stateDiagram-v2
+    [*] --> Pendiente : Registro local (Offline)
+    Pendiente --> Sincronizando : Conexión recuperada
+    Sincronizando --> Sincronizado : Éxito (PostgreSQL 201)
+    Sincronizando --> Fallido : Error de Validación/Red
+    Fallido --> Pendiente : Reintento Automático
+    Sincronizado --> [*]
+        </pre>
+    </div>
+
+    <div id="d9" class="diagram-container">
+        <h2>4.1 Bloques Hardware</h2>
+        <pre class="mermaid">
+graph LR
+    TAG[Tarjeta RFID / Tag] -- Radiofrecuencia --> LECTOR[Lector RFID Desktop]
+    LECTOR -- USB HID --> PC[PC Administrador]
+    PC -- Navegador --> APP[Aplicación Web Tajamonae]
+    
+    subgraph "Emulación de Teclado"
+        LECTOR -->|UID + Enter| FOCUS[Campo de Texto en Foco]
+    end
+        </pre>
+    </div>
+
+    <div id="d10" class="diagram-container">
+        <h2>4.2 DFD Nivel 1</h2>
+        <pre class="mermaid">
+flowchart LR
+    ID[Microchip RFID] -->|UID crudo| SCAN[Lector RFID]
+    SCAN -->|UID String| BRIDGE[Middleware de Navegador]
+    BRIDGE -->|Validación Zod| SERVER[Server Action]
+    SERVER -->|Query SQL| DB[(Supabase DB)]
+    DB -->|Registro Auditado| REPORT[Módulo Consolidado]
+        </pre>
+    </div>
+</body>
+</html>

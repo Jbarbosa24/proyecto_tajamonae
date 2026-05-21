@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#ffb77d",
+              "surface-dim": "#d8dadc",
+              "on-secondary-fixed-variant": "#713700",
+              "on-primary-fixed-variant": "#004e5a",
+              "tertiary": "#7d4611",
+              "primary-container": "#0e7787",
+              "outline-variant": "#bec8cb",
+              "on-primary-fixed": "#001f25",
+              "surface-bright": "#f7f9fb",
+              "secondary-fixed-dim": "#ffb783",
+              "surface-container-highest": "#e0e3e5",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#a2eeff",
+              "surface-container-low": "#f2f4f6",
+              "surface-tint": "#006877",
+              "surface-container": "#eceef0",
+              "on-tertiary-fixed-variant": "#6d3a04",
+              "secondary-container": "#ffa35d",
+              "on-surface": "#191c1e",
+              "on-secondary-fixed": "#301400",
+              "background": "#f7f9fb",
+              "secondary-fixed": "#ffdcc5",
+              "outline": "#6e797b",
+              "on-error": "#ffffff",
+              "on-background": "#191c1e",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#2f1500",
+              "inverse-surface": "#2d3133",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed-dim": "#7fd3e5",
+              "secondary": "#924b08",
+              "on-primary-container": "#cef6ff",
+              "on-tertiary-container": "#ffebde",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#9a5e28",
+              "primary": "#005d6a",
+              "tertiary-fixed": "#ffdcc3",
+              "surface-variant": "#e0e3e5",
+              "inverse-primary": "#7fd3e5",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#3e484b",
+              "surface-container-high": "#e6e8ea",
+              "on-secondary-container": "#743900"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layering {
+            background-image: radial-gradient(at 0% 0%, rgba(14, 119, 135, 0.03) 0, transparent 50%), 
+                              radial-gradient(at 50% 0%, rgba(146, 75, 8, 0.02) 0, transparent 50%);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (Desktop) -->
+<aside class="h-screen w-64 hidden md:flex flex-col border-r-0 fixed left-0 top-0 h-full p-4 space-y-2 bg-slate-50 dark:bg-slate-950 tonal-layering z-50">
+<div class="px-2 py-4 mb-4">
+<span class="text-lg font-extrabold text-cyan-900 dark:text-white uppercase tracking-wider block">Hotel Tajamonae</span>
+<span class="text-xs font-medium text-slate-500 uppercase tracking-widest">Admin Portal</span>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:opacity-80 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:opacity-80 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">bed</span>
+<span>Habitaciones</span>
+</a>
+<!-- Active State: Personal -->
+<a class="flex items-center gap-3 px-4 py-3 text-cyan-800 dark:text-cyan-300 bg-white dark:bg-slate-800 rounded-lg shadow-sm font-bold font-manrope text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Personal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:opacity-80 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">concierge</span>
+<span>Servicios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:opacity-80 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">local_laundry_service</span>
+<span>Lavandería</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-200 hover:translate-x-1 transition-transform duration-200 cursor-pointer active:opacity-80 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Consolidado</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-error transition-colors font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-6 md:p-10 pb-24 md:pb-10 relative">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+<div class="space-y-1">
+<h1 class="text-4xl font-extrabold text-primary tracking-tight leading-none">Gestión de Personal</h1>
+<p class="text-on-surface-variant font-medium opacity-80">Administración y asignación de operarios del proyecto.</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="bg-surface-container-low text-primary px-5 py-2.5 rounded-lg flex items-center gap-2 font-semibold hover:bg-surface-container-high transition-colors text-sm">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+                    Sugerir asignación
+                </button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg flex items-center gap-2 font-bold shadow-sm active:scale-95 transition-all text-sm">
+<span class="material-symbols-outlined text-xl">person_add</span>
+                    Nuevo Operario
+                </button>
+</div>
+</header>
+<!-- Stats Grid (Subtle Tonal Layering) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 block mb-1">Total Operarios</span>
+<span class="text-3xl font-extrabold text-primary">142</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 block mb-1">Activos Hoy</span>
+<span class="text-3xl font-extrabold text-primary">88</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 block mb-1">Turno 14/7</span>
+<span class="text-3xl font-extrabold text-secondary">64</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 block mb-1">En Descanso</span>
+<span class="text-3xl font-extrabold text-on-surface-variant">54</span>
+</div>
+</div>
+<!-- Data Table Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-6 border-b border-surface-container flex flex-col md:flex-row justify-between gap-4">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar operario por nombre o empresa..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-outline hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">filter_list</span></button>
+<button class="p-2 text-outline hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">download</span></button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Nombre</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Empresa</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-center">Género</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Cargo</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Turno</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">UID Tag RFID</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Estado</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xs">JM</div>
+<span class="text-sm font-semibold text-on-surface">Javier Mendoza</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Mineria Los Andes</td>
+<td class="px-6 py-4 text-sm text-center">M</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-2 py-1 rounded text-[10px] font-bold uppercase text-on-surface-variant">Operativo</span>
+</td>
+<td class="px-6 py-4 text-sm">14/7</td>
+<td class="px-6 py-4 text-sm font-mono text-outline">A1-B2-C3-D4</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed text-primary text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Disponible
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold text-xs">AL</div>
+<span class="text-sm font-semibold text-on-surface">Andrea Luna</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Consorcio Vías</td>
+<td class="px-6 py-4 text-sm text-center">F</td>
+<td class="px-6 py-4">
+<span class="bg-secondary-container/20 px-2 py-1 rounded text-[10px] font-bold uppercase text-secondary">Administrativo</span>
+</td>
+<td class="px-6 py-4 text-sm">20/10</td>
+<td class="px-6 py-4 text-sm font-mono text-outline">X9-Y8-Z7-W6</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary-container"></span>
+                                    Ocupado
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-bold text-xs">RT</div>
+<span class="text-sm font-semibold text-on-surface">Ricardo Tovar</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Sueldos del Norte</td>
+<td class="px-6 py-4 text-sm text-center">M</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-2 py-1 rounded text-[10px] font-bold uppercase text-on-surface-variant">Operativo</span>
+</td>
+<td class="px-6 py-4 text-sm">14/7</td>
+<td class="px-6 py-4 text-sm font-mono text-outline">E5-F6-G7-H8</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                    Descanso
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 flex justify-between items-center text-xs font-medium text-on-surface-variant">
+<span>Mostrando 3 de 142 operarios</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-surface-container-low rounded hover:bg-surface-container-high">Anterior</button>
+<button class="px-3 py-1 bg-primary text-on-primary rounded">1</button>
+<button class="px-3 py-1 bg-surface-container-low rounded hover:bg-surface-container-high">2</button>
+<button class="px-3 py-1 bg-surface-container-low rounded hover:bg-surface-container-high">Siguiente</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Modal: Registro de Operario (Overlay) -->
+<div class="fixed inset-0 z-[100] bg-on-surface/40 backdrop-blur-sm flex items-center justify-center p-4">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+<div class="px-8 py-6 bg-surface-container-low flex justify-between items-center">
+<h2 class="text-2xl font-extrabold text-primary tracking-tight">Registro de Operario</h2>
+<button class="p-1.5 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Field Group -->
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Nombre Completo *</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Ej. Juan Pérez" required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Empresa Contratista *</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20" required="">
+<option value="">Seleccione empresa</option>
+<option>Mineria Los Andes</option>
+<option>Consorcio Vías</option>
+<option>Sueldos del Norte</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Género *</label>
+<div class="flex gap-4 pt-2">
+<label class="flex items-center gap-2 text-sm cursor-pointer">
+<input class="text-primary focus:ring-primary/20" name="genero" required="" type="radio"/> M
+                        </label>
+<label class="flex items-center gap-2 text-sm cursor-pointer">
+<input class="text-primary focus:ring-primary/20" name="genero" type="radio"/> F
+                        </label>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Tipo de Cargo *</label>
+<div class="flex gap-4 pt-2">
+<label class="flex items-center gap-2 text-sm cursor-pointer">
+<input class="text-primary focus:ring-primary/20" name="cargo" required="" type="radio"/> Operativo
+                        </label>
+<label class="flex items-center gap-2 text-sm cursor-pointer">
+<input class="text-primary focus:ring-primary/20" name="cargo" type="radio"/> Administrativo
+                        </label>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Turno Asignado *</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20" required="">
+<option value="14/7">Turno 14/7</option>
+<option value="20/10">Turno 20/10</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">UID Tag RFID *</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-low border-none rounded-lg p-3 text-sm font-mono focus:ring-2 focus:ring-primary/20" placeholder="Scan or type ID" required="" type="text"/>
+<button class="bg-surface-container px-3 rounded-lg text-primary hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined">nfc</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-2 pt-6 flex flex-col md:flex-row gap-3 justify-end border-t border-surface-container mt-2">
+<button class="px-6 py-3 text-sm font-bold text-on-surface-variant hover:bg-surface-container transition-colors rounded-lg" type="button">Cancelar</button>
+<button class="px-8 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-extrabold rounded-lg shadow-md active:scale-95 transition-all text-sm" type="submit">Guardar Operario</button>
+</div>
+</form>
+</div>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-lg rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent transition-all py-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent transition-all py-1" href="#">
+<span class="material-symbols-outlined">bed</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Cuartos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-cyan-700 dark:text-cyan-300 bg-cyan-50/50 dark:bg-cyan-900/30 rounded-xl px-3 py-1 tap-highlight-transparent transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">badge</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Staff</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent transition-all py-1" href="#">
+<span class="material-symbols-outlined">room_service</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Servicios</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 tap-highlight-transparent transition-all py-1" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-inter text-[10px] uppercase tracking-widest">Más</span>
+</a>
+</nav>
+</body></html>
