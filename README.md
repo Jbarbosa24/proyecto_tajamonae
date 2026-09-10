@@ -1,54 +1,48 @@
-# Hotel Tajamonae - Sistema de Control y Gestión Hotelero
+# Sistema de Gestión y Control Hotelero
 
-Este repositorio contiene el sistema integral de gestión y control para el Hotel Tajamonae, incluyendo el panel administrativo, control de lavandería, operación logística y registro de servicios. 
+Sistema web para la operación hotelera centralizada, orientado al control de consumos, hospedaje, reportería y autenticación de usuarios. La solución está diseñada para operar con trazabilidad de movimientos, validación de accesos por perfil y persistencia de datos en una base transaccional administrada desde Supabase.
 
-## Estructura del Proyecto
+## Stack tecnológico
 
-- `hotel-tajamonae/`: Contiene la aplicación web principal desarrollada en **Next.js**. Incluye toda la lógica del cliente (React, Tailwind CSS, shadcn/ui) y la integración con la base de datos (Supabase).
-- `stitch_login_seguro_hotel_tajamonae/`: Archivos y plantillas base de diseño (prototipos y estructuras en HTML/CSS).
-- Otros documentos de planificación e iteración (archivos Markdown).
+- Next.js para la capa web y el enrutamiento de la aplicación.
+- TypeScript para tipado estático y mantenimiento de la base de código.
+- PostgreSQL gestionado a través de Supabase para almacenamiento, seguridad y autenticación.
+- Tailwind CSS para estilos utilitarios y composición de interfaz.
+- Integraciones complementarias para exportación de reportes, hojas de cálculo y documentos operativos.
 
-## Requisitos Previos
+## Módulos principales
 
-Asegúrate de tener instalados:
-- [Node.js](https://nodejs.org/) (versión 20 o superior recomendada)
-- [pnpm](https://pnpm.io/) (El manejador de paquetes de este proyecto)
-- [Git](https://git-scm.com/)
+- Control de consumos: registro y seguimiento de consumos operativos y sus reportes asociados.
+- Hospedaje: gestión de estados, operaciones de habitaciones y flujo de atención.
+- Reportería: exportación y consolidación de información para seguimiento administrativo.
+- Autenticación: acceso seguro por perfiles y políticas de autorización.
 
-## Cómo iniciar el proyecto localmente
+## Instalación local
 
-1. **Clonar el repositorio y entrar al proyecto web:**
-   ```bash
-   git clone https://github.com/Jbarbosa24/proyecto_tajamonae.git
-   cd "proyecto_tajamonae/hotel-tajamonae"
-   ```
+1. Instala dependencias:
+	```bash
+	npm install
+	```
 
-2. **Instalar las dependencias:**
-   Usamos `pnpm`, por lo cual debes ejecutar:
-   ```bash
-   pnpm install
-   ```
+2. Crea tu archivo de entorno local a partir de `.env.example` y completa las variables requeridas:
+	```env
+	NEXT_PUBLIC_SUPABASE_URL=
+	NEXT_PUBLIC_SUPABASE_ANON_KEY=
+	SUPABASE_SERVICE_ROLE_KEY=
+	```
 
-3. **Variables de entorno:**
-   Deberás configurar tu archivo `.env.local` dentro de `hotel-tajamonae` para enlazar tus claves de Supabase:
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=tu-url-de-supabase
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key-de-supabase
-   ```
+3. Ejecuta el entorno de desarrollo:
+	```bash
+	npm run dev
+	```
 
-4. **Ejecutar el servidor de desarrollo:**
-   ```bash
-   pnpm dev
-   ```
+4. Abre la aplicación en:
+	```text
+	http://localhost:3000
+	```
 
-5. **Acceder a la aplicación:**
-   Abre [http://localhost:3000](http://localhost:3000) en tu navegador preferido.
+## Comandos útiles
 
-## Tecnologías Principales
-
-- **Framework:** Next.js (App Router)
-- **Lenguaje:** TypeScript
-- **Estilos:** Tailwind CSS 
-- **Base de Datos & Auth:** Supabase
-- **Manejo de Estado:** Zustand
-- **Reportes:** exceljs, jspdf
+- `npm run build` para validar el empaquetado de producción.
+- `npm run lint` para revisar estilo y errores estáticos.
+- `npm run test:coverage` para ejecutar la batería de pruebas con cobertura.
